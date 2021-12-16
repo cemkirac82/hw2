@@ -52,9 +52,9 @@ def Regression(df,outcome_variable):
     Results['Covariates'] = Covariates.tolist()
     Results['Coefficients'] = B.tolist()
     Results['StandardErrors'] = diagonal.tolist()
-    Results['Interval_Min'] = min_interval
-    Results['Interval_Max'] = max_interval
+    Results['Interval_Min'] = min_interval  # from statsmodels
+    Results['Interval_Max'] = max_interval  # from statsmodels
     #return Covariates,B,diagonal,interval
-    return Results, res.summary()
+    return Results, res.summary() #1st output has my own results, 2nd has statsmodels results
 
-Results, imported_module_results=Regression(df,'GDP_PER_CAPITA')
+Results, imported_module_results=Regression(df,'GDP_PER_CAPITA') #1st output has my own results, 2nd has statsmodels results
